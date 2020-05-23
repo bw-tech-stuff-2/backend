@@ -12,17 +12,38 @@ exports.up = function (knex) {
       tbl.string("password", 20).notNullable();
       tbl.string("renterName", 50).index().notNullable().unique();
     })
-    .createTable("tech", tbl => {
-        tbl.increments();
-        tbl.string("techItem").notNullable();
-        tbl.string("owner").notNullable();
-        tbl.integer("price").notNullable();
+    .createTable("tech", (tbl) => {
+      tbl.increments();
+      tbl.string("techItem").notNullable();
+      tbl.string("owner").notNullable();
+      tbl.integer("price").notNullable();
     })
+    .createTable("techRequest", (tbl) => {
+      tbl.increments();
+      tbl.string("request", 20);
+      tbl
+        .integer("techId")
+        .unsigned()
+        .notNullable()
+        .references("id")
+        .inTable("tech")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
+
+      tbl
+        .integer("renterId")
+        .unsigned()
+        .notNullable()
+        .references("id")
+        .inTable("renter")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
+    });
 };
 
 exports.down = function (knex) {
-    return knex.schema
-        .dropTableIfExists("tech")
-        .dropTableIfExists("renters")
-        .dropTableIfExists("owners")
+  return knex.schema
+    .dropTableIfExists("tech")
+    .dropTableIfExists("renters")
+    .dropTableIfExists("owners");
 };
