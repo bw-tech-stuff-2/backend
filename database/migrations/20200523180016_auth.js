@@ -15,7 +15,7 @@ exports.up = function (knex) {
     .createTable("tech", tbl => {
         tbl.increments();
         tbl.string("techItem").notNullable();
-        tbl.string("seller").notNullable();
+        tbl.string("owner").notNullable();
         tbl.integer("price").notNullable();
     })
 };
