@@ -1,16 +1,24 @@
-// Update with your config settings.
+require("dotenv").config();
+
 
 module.exports = {
-
   development: {
-    client: 'sqlite3',
-    connection: { filename: './database/auth.db3' },
+    client: "sqlite3",
     useNullAsDefault: true,
-    migrations: {
-      directory: './database/migrations',
-      tableName: 'dbmigrations',
+    connection: {
+      filename: "./database/auth.db3",
     },
-    seeds: { directory: './database/seeds' },
+    pool: {
+      afterCreate: (conn, done) => {
+        conn.run("PRAGMA foreign_keys = ON", done);
+      },
+    },
+    migrations: {
+      directory: "./database/migrations",
+    },
+    seeds: {
+      directory: "./database/seeds",
+    },
   },
 
   staging: {
