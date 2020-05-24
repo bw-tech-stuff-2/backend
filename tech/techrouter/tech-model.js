@@ -1,21 +1,21 @@
 const db = require("../../database/dbConfig");
 
 module.exports = {
-  add,
+//   add,
   find,
-  findByOwner,
-  findById,
-  update,
-  destroy
+//   findByOwner,
+//   findById,
+//   update,
+//   destroy
 };
 
-function add(tech) {
-    return db('tech')
-        .insert(tech, 'id')
-        .then(id => {
-            return findById(id);
-        })
-}
+// function add(tech) {
+//     return db('tech')
+//         .insert(tech, 'id')
+//         .then(id => {
+//             return findById(id);
+//         })
+// }
 
 function find() {
     return db('tech')
