@@ -4,24 +4,33 @@ exports.up = function (knex) {
       tbl.increments();
       tbl.string("username", 50).index().notNullable().unique();
       tbl.string("password", 20).notNullable();
-      tbl.string("ownerName", 50).index().notNullable().unique();
+      tbl.string("ownerName", 50).index().notNullable()
+      tbl.string("email")
     })
     .createTable("renters", (tbl) => {
       tbl.increments();
       tbl.string("username", 50).index().notNullable().unique();
       tbl.string("password", 20).notNullable();
-      tbl.string("renterName", 50).index().notNullable().unique();
+      tbl.string("renterName", 50).index().notNullable()
     })
     .createTable("tech", (tbl) => {
       tbl.increments();
-      tbl.string("techItem").notNullable();
-      tbl.string("techDescription").notNullable();
-      tbl.string("owner").notNullable();
-      tbl.integer("price").notNullable();
+      tbl.string("techItem", 50).notNullable();
+      tbl.string("techDescription", 500).notNullable();
+      tbl.string("owner", 50).notNullable();
+      tbl.string("price").notNullable();//possibly decimal or string
+      tbl
+        .integer("ownersId")
+        .unsigned()
+        .notNullable()
+        .references("id")
+        .inTable("owners")
+        .onDelete("CASCADE")
+        .onUpdate("CASCADE");
     })
     .createTable("techRequest", (tbl) => {
       tbl.increments();
-      tbl.string("request", 20);
+      tbl.string("request", 255);
       tbl
         .integer("techId")
         .unsigned()
