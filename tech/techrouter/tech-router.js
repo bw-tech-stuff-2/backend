@@ -40,4 +40,24 @@ router.post('/', (req, res) => {
     })
 })
 
+router.put('/:id', (req, res) => {
+    const id = req.params.id;
+    const updates = req.body;
+
+    Tech.findById(id)
+    .then(tech => {
+        if (tech) {
+            Tech.update(updates, id)
+            .then(update => {
+                res.status(201).json(update)
+            })
+        } else {
+            res.status(404).json({message: 'Unable to find tech'})
+        }
+    })
+    .catch(err => {
+        res.status(500).json({message: err})
+    })
+})
+
 module.exports = router;
