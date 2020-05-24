@@ -1,21 +1,15 @@
 const db = require("../../database/dbConfig");
 
 module.exports = {
-  add,
   find,
 //   findByOwner,
   findById,
-//   update,
+  add,
+  update,
 //   destroy
 };
 
-function add(tech) {
-    return db('tech')
-        .insert(tech, 'id')
-        .then(id => {
-            return findById(id);
-        })
-}
+
 
 function find() {
     return db('tech')
@@ -29,4 +23,18 @@ function findById(id) {
       .select('tech.id', 'tech.techItem', 'tech.techDescription', 'tech.owner', 'tech.price')
       .where('tech.id', id)
       .first()
+}
+
+function add(tech) {
+  return db('tech')
+      .insert(tech, 'id')
+      .then(id => {
+          return findById(id);
+      })
+}
+
+function update(updates, id) {
+  return db('tech')
+      .where({id})
+      .update(updates);
 }

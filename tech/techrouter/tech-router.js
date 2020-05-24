@@ -29,9 +29,9 @@ router.get('/:id', (req, res) => {
 })
 
 router.post('/', (req, res) => {
-    const techs = req.body;
+    const techStuff = req.body;
 
-    Tech.add(techs)
+    Tech.add(techStuff)
     .then(tech => {
         res.status(201).json(tech)
     })
