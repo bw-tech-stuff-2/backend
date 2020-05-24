@@ -12,7 +12,7 @@ server.use(helmet());
 server.use(cors());
 server.use(express.json());
 
-// server.use('/api/auth', authRouter);
+server.use('/api/auth', authRouter);
 // server.use('/api/tech', authenticate, techRouter);
 
 server.get("/", (req, res) => {
