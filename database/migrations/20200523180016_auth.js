@@ -15,9 +15,9 @@ exports.up = function (knex) {
     })
     .createTable("tech", (tbl) => {
       tbl.increments();
-      tbl.string("techItem", 50).notNullable();
+      tbl.string("techItem", 50).index().notNullable();
       tbl.string("techDescription", 500).notNullable();
-      tbl.string("owner", 50).notNullable();
+      tbl.string("owner", 50).index().notNullable();
       tbl.string("price").notNullable();//possibly decimal or string
       tbl
         .integer("ownersId")
@@ -41,7 +41,7 @@ exports.up = function (knex) {
         .onUpdate("CASCADE");
 
       tbl
-        .integer("renterId")
+        .integer("rentersId")
         .unsigned()
         .notNullable()
         .references("id")
