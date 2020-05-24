@@ -7,7 +7,7 @@ const { isValid } = require("../owners-service");
 router.use(restricted);
 
 router.get("/", (req, res) => {
-  Users.find()
+  Owners.find()
     .then(users => {
       res.status(200).json({ users, jwt: req.jwt });
     })
@@ -19,7 +19,7 @@ router.post("/", checkRoles(["admin"]), (req, res) => {
   const user = req.body;
 
   if (isValid(user)) {
-    Users.add(user)
+    Owners.add(user)
       .then(saved => {
         res.status(201).json({ data: saved });
       })

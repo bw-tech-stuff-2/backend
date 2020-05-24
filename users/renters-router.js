@@ -1,13 +1,13 @@
 const router = require("express").Router();
 
-const Users = require("./users-model.js");
-const restricted = require("../auth/authenticate-middleware.js");
-const { isValid } = require("./users-service.js");
+const Renters = require("./renters-model");
+const restricted = require("../../auth/authenticate-middleware");
+const { isValid } = require("../renters-service");
 
 router.use(restricted);
 
 router.get("/", (req, res) => {
-  Users.find()
+  Renters.find()
     .then(users => {
       res.status(200).json({ users, jwt: req.jwt });
     })
@@ -19,7 +19,7 @@ router.post("/", checkRoles(["admin"]), (req, res) => {
   const user = req.body;
 
   if (isValid(user)) {
-    Users.add(user)
+    Renters.add(user)
       .then(saved => {
         res.status(201).json({ data: saved });
       })
