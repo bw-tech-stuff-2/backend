@@ -43,7 +43,7 @@ router.post("/login", (req, res) => {
        
           const token = createToken(user);
 
-          res.status(200).json({ message: "Welcome to our API", token });
+          res.status(200).json({ message: "TECH TIME", token });
         } else {
           res.status(401).json({ message: "Invalid credentials" });
         }
