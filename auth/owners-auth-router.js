@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const router = require("express").Router();
 
 const Users = require("../users/owners/owners-model");
-const { isValid } = require("../users/users-service");
+const { isValid } = require("../users/owners/owners-service");
 
 router.post("/register", (req, res) => {
   const credentials = req.body;
