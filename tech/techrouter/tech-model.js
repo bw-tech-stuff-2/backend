@@ -1,7 +1,7 @@
 const db = require("../../database/dbConfig");
 
 module.exports = {
-//   add,
+  add,
   find,
 //   findByOwner,
   findById,
@@ -9,13 +9,13 @@ module.exports = {
 //   destroy
 };
 
-// function add(tech) {
-//     return db('tech')
-//         .insert(tech, 'id')
-//         .then(id => {
-//             return findById(id);
-//         })
-// }
+function add(tech) {
+    return db('tech')
+        .insert(tech, 'id')
+        .then(id => {
+            return findById(id);
+        })
+}
 
 function find() {
     return db('tech')

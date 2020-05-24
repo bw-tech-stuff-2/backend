@@ -28,4 +28,16 @@ router.get('/:id', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+    const techs = req.body;
+
+    Tech.add(techs)
+    .then(tech => {
+        res.status(201).json(tech)
+    })
+    .catch(error => {
+        res.status(500).json({message: error})
+    })
+})
+
 module.exports = router;
