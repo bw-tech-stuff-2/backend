@@ -3,7 +3,7 @@ const cors = require('cors');
 const helmet = require('helmet');
 
 const authenticate = require('../auth/authenticate-middleware.js');
-const authRouter = require('../auth/auth-router.js');
+const ownersAuthRouter = require('../auth/owners-auth-router.js');
 const techRouter = require('../tech/tech-router.js');
 
 const server = express();
@@ -12,7 +12,7 @@ server.use(helmet());
 server.use(cors());
 server.use(express.json());
 
-server.use('/api/auth', authRouter);
+server.use('/api/owners/auth', ownersAuthRouter);
 // server.use('/api/tech', authenticate, techRouter);
 
 server.get("/", (req, res) => {
