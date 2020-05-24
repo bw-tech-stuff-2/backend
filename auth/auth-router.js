@@ -3,8 +3,8 @@ const jwt = require("jsonwebtoken");
 
 const router = require("express").Router();
 
-const Users = require("../users/users-model.js");
-const { isValid } = require("../users/users-service.js");
+const Users = require("../users/owners/owners-model");
+const { isValid } = require("../users/users-service");
 
 router.post("/register", (req, res) => {
   const credentials = req.body;
@@ -36,7 +36,7 @@ router.post("/login", (req, res) => {
   const { username, password } = req.body;
 
   if (isValid(req.body)) {
-    Users.findBy({ "u.username": username })
+    Users.findBy({ username: username })
       .then(([user]) => {
       
         if (user && bcryptjs.compareSync(password, user.password)) {
