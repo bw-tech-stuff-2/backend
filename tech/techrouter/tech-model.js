@@ -6,7 +6,7 @@ module.exports = {
   findById,
   add,
   update,
-//   destroy
+  destroy
 };
 
 
@@ -37,4 +37,10 @@ function update(updates, id) {
   return db('tech')
       .where({id})
       .update(updates);
+}
+
+function destroy(id) {
+  return db('tech')
+      .where({id})
+      .del();
 }

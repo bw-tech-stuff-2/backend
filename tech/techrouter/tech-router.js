@@ -55,9 +55,25 @@ router.put('/:id', (req, res) => {
             res.status(404).json({message: 'Unable to find tech'})
         }
     })
-    .catch(err => {
-        res.status(500).json({message: err})
+    .catch(error => {
+        res.status(500).json({message: error})
     })
+})
+
+router.delete('/:id', (req, res) => {
+    const id = req.params.id;
+
+    Tech.destroy(id)
+        .then(bye => {
+            if (bye) {
+                res.status(200).json({removed: bye})
+            } else {
+                res.status(404).json({message: 'Could not find tech'});
+            }
+        })
+        .catch(error => {
+            res.status(500).json({message: error})
+        })
 })
 
 module.exports = router;
