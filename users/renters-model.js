@@ -1,31 +1,25 @@
-const db = require("../database/dbConfig.js");
+const db = require("../../database/dbConfig");
 
 module.exports = {
   add,
-  find,
+  findRenter,
   findBy,
   findById,
 };
 
-function find() {
-  return db("users as u")
-    .join("roles as r", "u.role", "r.id")
-    .select("u.id", "u.username", "r.name as role")
-    .orderBy("u.id");
+function findRenter() {
+  return db("renters").select("username", "password", "renterName")
 }
 
 function findBy(filter) {
-  console.log("filter", filter);
-  return db("users as u")
-    .join("roles as r", "u.role", "r.id")
-    .where(filter)
-    .select("u.id", "u.username", "r.name as role", "u.password")
-    .orderBy("u.id");
+
+  return db("renters").where(filter);
+   
 }
 
 async function add(user) {
   try {
-    const [id] = await db("users").insert(user, "id");
+    const [id] = await db("renters").insert(user, "id");
 
     return findById(id);
   } catch (error) {
@@ -34,5 +28,5 @@ async function add(user) {
 }
 
 function findById(id) {
-  return db("users").where({ id }).first();
+  return db("renters").where({ id }).first();
 }
