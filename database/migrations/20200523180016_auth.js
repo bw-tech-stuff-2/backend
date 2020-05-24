@@ -12,6 +12,7 @@ exports.up = function (knex) {
       tbl.string("username", 50).index().notNullable().unique();
       tbl.string("password", 20).notNullable();
       tbl.string("renterName", 50).index().notNullable()
+      tbl.string("email")
     })
     .createTable("tech", (tbl) => {
       tbl.increments();
