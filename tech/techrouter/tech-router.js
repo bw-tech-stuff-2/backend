@@ -76,4 +76,20 @@ router.delete('/:id', (req, res) => {
         })
 })
 
+router.get('/owner/:id', (req, res) => {
+    const id = req.params.id;
+
+    Tech.findByOwner(id)
+        .then(tech => {
+            if (tech) {
+                res.status(200).json(tech)
+            } else {
+                res.status(404).json({message: 'Unable to find requests for that owner.'})
+            }
+        })
+        .catch(error => {
+            res.status(500).json({message: error})
+        })
+})
+
 module.exports = router;

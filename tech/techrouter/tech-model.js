@@ -45,9 +45,9 @@ function destroy(id) {
       .del();
 }
 
-function findByOwner(ownerId) {
+function findByOwner(ownersId) {
   return db('tech')
       .join('owners', 'owners.id', 'tech.ownersId')
-      .select('tech.id', 'tech.techItem', 'tech.description', 'tech.owner', 'tech.price')
-      .where('tech.ownersId', ownerId)
+      .select('tech.id', 'tech.techItem', 'tech.techDescription', 'tech.owner', 'tech.price', 'owners.username', 'owners.password', 'owners.ownerName', 'owners.email')
+      .where('tech.ownersId', ownersId)
 }
