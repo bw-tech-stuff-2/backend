@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 
 const router = require("express").Router();
 
-const Users = require("../users/renters/renters-model");
+const Renters = require("../users/renters/renters-model");
 const { isValid } = require("../users/renters/renters-service");
 
 router.post("/register", (req, res) => {
@@ -18,7 +18,7 @@ router.post("/register", (req, res) => {
     credentials.password = hash;
 
    
-    Users.add(credentials)
+    Renters.add(credentials)
       .then(user => {
         res.status(201).json({ data: user });
       })
@@ -36,7 +36,7 @@ router.post("/login", (req, res) => {
   const { username, password } = req.body;
 
   if (isValid(req.body)) {
-    Users.findBy({ username: username })
+    Renters.findBy({ username: username })
       .then(([user]) => {
       
         if (user && bcryptjs.compareSync(password, user.password)) {

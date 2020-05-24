@@ -2,7 +2,7 @@ const router = require("express").Router();
 
 const Renters = require("./renters-model");
 const restricted = require("../../auth/authenticate-middleware");
-const { isValid } = require("../renters-service");
+const { isValid } = require("./renters-service");
 
 router.use(restricted);
 

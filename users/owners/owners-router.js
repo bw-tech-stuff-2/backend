@@ -2,7 +2,7 @@ const router = require("express").Router();
 
 const Owners = require("./owners-model");
 const restricted = require("../../auth/authenticate-middleware");
-const { isValid } = require("../owners-service");
+const { isValid } = require("./owners-service");
 
 router.use(restricted);
 
