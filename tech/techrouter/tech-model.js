@@ -2,7 +2,7 @@ const db = require("../../database/dbConfig");
 
 module.exports = {
   find,
-//   findByOwner,
+  findByOwner,
   findById,
   add,
   update,
@@ -43,4 +43,11 @@ function destroy(id) {
   return db('tech')
       .where({id})
       .del();
+}
+
+function findByOwner(ownerId) {
+  return db('tech')
+      .join('owners', 'owners.id', 'tech.ownersId')
+      .select('tech.id', 'tech.techItem', 'tech.description', 'tech.owner', 'tech.price')
+      .where('tech.ownersId', ownerId)
 }
