@@ -16,3 +16,9 @@ function add(tech) {
             return findById(id);
         })
 }
+
+function find() {
+    return db('tech')
+        .join('owners', 'owners.id', 'tech.ownersId')
+        .select('tech.id', 'tech.techItem', 'tech.techDescription', 'tech.owner', 'tech.price')
+}
