@@ -60,4 +60,20 @@ router.post('/', (req, res) => {
     })
 })
 
+router.delete('/:id', (req, res) => {
+    const id = req.params.id;
+
+    Request.remove(id)
+        .then(deleted => {
+            if (deleted) {
+                res.status(200).json({removed: deleted})
+            } else {
+                res.status(404).json({message: 'Could not find that id'});
+            }
+        })
+        .catch(error => {
+            res.status(500).json({message: error})
+        })
+})
+
 module.exports = router;
