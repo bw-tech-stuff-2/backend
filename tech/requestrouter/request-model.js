@@ -6,7 +6,7 @@ module.exports = {
     findById,
     add,
     update,
-    // remove
+    remove
 }
 
 function find() {
@@ -37,4 +37,10 @@ function add(techRequests) {
         .then(ids => {
             return findById(ids);
         })
+}
+
+function remove(id) {
+    return db('techRequest')
+        .where({id})
+        .del();
 }
