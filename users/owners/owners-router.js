@@ -7,7 +7,7 @@ const { isValid } = require("./owners-service");
 router.use(restricted);
 
 router.get("/", (req, res) => {
-  Owners.find()
+  Owners.findOwner()
     .then(users => {
       res.status(200).json({ users, jwt: req.jwt });
     })

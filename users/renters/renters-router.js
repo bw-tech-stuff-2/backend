@@ -7,7 +7,7 @@ const { isValid } = require("./renters-service");
 router.use(restricted);
 
 router.get("/", (req, res) => {
-  Renters.find()
+  Renters.findRenter()
     .then(users => {
       res.status(200).json({ users, jwt: req.jwt });
     })
