@@ -2,7 +2,7 @@ const db = require('../../database/dbConfig');
 
 module.exports = {
     find,
-    // findByRenter,
+    findByRenter,
     findById,
     add,
     update,
@@ -43,4 +43,12 @@ function remove(id) {
     return db('techRequest')
         .where({id})
         .del();
+}
+
+function findByRenter(renterId) {
+    return db('techRequest')
+    .join('tech', 'techRequest.techId', 'tech.id')
+    .join('renters', 'techRequest.rentersId', 'renters.id')
+    .select('techRequest.id', 'tech.techItem', 'tech.techDescription', 'tech.owner', 'tech.price', 'techRequest.request', 'techRequest.rentersId', 'renters.username')
+    .where({renterId})
 }
