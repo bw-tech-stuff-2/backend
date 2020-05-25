@@ -48,4 +48,16 @@ router.put('/:id', (req, res) => {
     })
 })
 
+router.post('/', (req, res) => {
+    const requestInfo = req.body;
+
+    Request.add(requestInfo)
+    .then(requests => {
+        res.status(201).json(requests)
+    })
+    .catch(error => {
+        res.status(500).json({message: error})
+    })
+})
+
 module.exports = router;
