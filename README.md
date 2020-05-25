@@ -23,7 +23,7 @@ Register New Renter POST to /api/renters/auth/register
  {
      username:   flyguy            // String, Unique, NEEDED
      password:   backtothefuture   // String, NEEDED
-     renterName: Marty McFly      // String, NEEDED
+     renterName: Marty McFly       // String, NEEDED
      email:      flyguy@mail.com   // String, Not Needed
  }
 
@@ -31,9 +31,9 @@ Register New Renter POST to /api/renters/auth/register
 Login New Renter POST to /api/renters/auth/login
 
  {
-    username:   // String, unique, NEEDED
-    password:   // String, NEEDED
-    renterName:   // String, NEEDED
+    username:    flyguy            // String, unique, NEEDED
+    password:    backtothefuture   // String, NEEDED
+    renterName:  Marty McFly       // String, NEEDED
  }
 
 
