@@ -5,7 +5,7 @@ module.exports = {
     // findByRenter,
     // findById,
     // add,
-    // update,
+    update,
     // remove
 }
 
@@ -14,4 +14,10 @@ function find() {
         .join('tech', 'techRequest.techId', 'tech.id')
         .join('renters', 'techRequest.rentersId', 'renters.id')
         .select('techRequest.id', 'tech.techItem', 'tech.techDescription', 'tech.owner', 'tech.price','techRequest.request', 'techRequest.rentersId', 'renters.username')
+}
+
+function update(updates, id) {
+    return db('techRequest')
+        .where({id})
+        .update(updates);
 }
