@@ -14,6 +14,22 @@ router.get("/", (req, res) => {
     .catch(err => res.send(err));
 });
 
+router.get('/:id', (req, res) => {
+  const id = req.params.id;
+
+  Owners.findById(id)
+  .then(owner => {
+      if (owner) {
+          res.status(200).json(owner)
+      } else {
+          res.status(404).json({message: 'Could not find owner'})
+      }
+  })
+  .catch(error => {
+      res.status(500).json({message: error})
+  })
+})
+
 
 router.post("/", checkRoles(["admin"]), (req, res) => {
   const user = req.body;
