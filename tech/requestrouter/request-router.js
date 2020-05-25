@@ -76,4 +76,20 @@ router.delete('/:id', (req, res) => {
         })
 })
 
+router.get('/renter/:id', (req, res) => {
+    const id = req.params.id;
+
+    Request.findByRenter(id)
+        .then(requests => {
+            if (requests) {
+                res.status(200).json(requests)
+            } else {
+                res.status(404).json({message: 'Unable to find id'})
+            }
+        })
+        .catch(error => {
+            res.status(500).json({message: error})
+        })
+})
+
 module.exports = router;
