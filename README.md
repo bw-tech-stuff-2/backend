@@ -2,37 +2,39 @@ BE Endpoints
 
 Register New Owner POST to /api/owners/auth/register
 
-{
-     "username":     // String, Unique, NEEDED
-     "password":     // String, NEEDED
-     "ownerName":    // String, NEEDED
-     "email":        // String, Not Needed
+ {
+     username:  Doc               // String, Unique, NEEDED
+     password:  backtothefuture   // String, NEEDED
+     ownerName: Emmett Brown      // String, NEEDED
+     email:     docbrown@mail.com // String, Not Needed
  }
 
 
 Login New Owner POST to /api/owners/auth/login
 
-{
-    "username":     // String, NEEDED
-    "password":     // String, NEEDED
-    "ownerName":    // String, NEEDED
-}
+ {
+    username:  Doc                // String, NEEDED
+    password:  backtothefuture    // String, NEEDED
+    ownerName: Emmett Brown       // String, NEEDED
+ }
 
 Register New Renter POST to /api/renters/auth/register
 
-{
-     "username":   // String, Unique, NEEDED
-     "password":   // String, NEEDED
-     "renterName":   // String, NEEDED
-     "email":     // String, Not Needed
+ {
+     username:   flyguy            // String, Unique, NEEDED
+     password:   backtothefuture   // String, NEEDED
+     renterName: Marty McFly      // String, NEEDED
+     email:      flyguy@mail.com   // String, Not Needed
  }
 
 
 Login New Renter POST to /api/renters/auth/login
 
-{
-    "username":   // String, unique, NEEDED
-    "password":   // String, NEEDED
-    "renterName":   // String, NEEDED
-}
+ {
+    username:   // String, unique, NEEDED
+    password:   // String, NEEDED
+    renterName:   // String, NEEDED
+ }
+
+
 
