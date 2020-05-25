@@ -28,4 +28,24 @@ router.get('/:id', (req, res) => {
     })
 })
 
+router.put('/:id', (req, res) => {
+    const id = req.params.id;
+    const update = req.body;
+
+    Request.findById(id)
+    .then(requests => {
+        if (requests) {
+            Request.update(update, id)
+            .then(updated => {
+                res.status(201).json(updated)
+            })
+        } else {
+            res.status(404).json({message: 'Unable to find id'})
+        }
+    })
+    .catch(error => {
+        res.status(500).json({message: error})
+    })
+})
+
 module.exports = router;
