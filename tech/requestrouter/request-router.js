@@ -1,9 +1,9 @@
 const router = require('express').Router();
 
-const request = require('./request-model');
+const Request = require('./request-model');
 
 router.get('/', (req, res) => {
-    request.find()
+    Request.find()
     .then(requests => {
         res.status(200).json(requests)
     })
