@@ -4,7 +4,7 @@ module.exports = {
     find,
     // findByRenter,
     findById,
-    // add,
+    add,
     update,
     // remove
 }
@@ -29,4 +29,12 @@ function findById(id) {
     .select('techRequest.id', 'tech.techItem', 'tech.techDescription', 'tech.owner', 'tech.price', 'techRequest.request', 'techRequest.rentersId', 'renters.username')
         .where('techRequest.id', id)
         .first()
+}
+
+function add(techRequests) {
+    return db('techRequest')
+        .insert(techRequests, 'id')
+        .then(ids => {
+            return findById(ids);
+        })
 }
