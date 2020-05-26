@@ -7,7 +7,7 @@ https://usemytechstuff2.herokuapp.com/
 | Request | URL | Description |
 | ------- | --- | ----------- |
 | POST | /api/owners/auth/register| register as a new owner |
-| POST | /api/owners/auth/login | login as an existing user |
+| POST | /api/owners/auth/login | login as an existing owner |
 | POST | /api/renters/auth/register| register as a new renter |
 | POST | /api/renters/auth/login | login as an existing renter |
 
@@ -16,7 +16,7 @@ https://usemytechstuff2.herokuapp.com/
 | Request | URL | Description |
 | ------- | --- | ----------- |
 | GET | api/tech | get all tech for all owners (needs to be logged in) |
-| GET | api/tech/:id | get tech for owner with specific id |
+| GET | api/tech/:id | get tech with specific id |
 | GET | api/tech/owners/:id | get all tech from specific owner id |
 | POST | api/tech | add tech from owner |
 | PUT | api/tech/:id | edit specific tech for owner |
