@@ -22,6 +22,10 @@ https://usemytechstuff2.herokuapp.com/
 | POST | api/request | add request from renter |
 | PUT | api/request/:id | edit specific request for renter |
 | DELETE | api/request/:id | delete specific request for renter |
+| GET | api/users/renters | get all renters |
+| GET | api/users/renters/:id | get renter by id |
+| GET | api/users/owners | get all owners|
+| GET | api/users/owners/:id | get owner by id|
 
 # Owners
 | Name | Type | Required | Unique | Notes |
