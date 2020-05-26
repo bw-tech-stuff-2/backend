@@ -8,7 +8,17 @@ BE Endpoints
 | username | string | yes | yes | owners username |
 | password | string | yes | no | owners password |
 | ownerName | string | yes | no | owners name |
-| email | string | no | no | owners email) |
+| email | string | no | no | owners email |
+
+
+# Renters
+| Name | Type | Required | Unique | Notes |
+| ---- | ---- | -------- | ------ | ----- |
+| username | string | yes | yes | renters username |
+| password | string | yes | no | renters password |
+| renterName | string | yes | no | renters name |
+| email | string | no | no | renters email |
+
 
 Register New Owner POST to /api/owners/auth/register
 
