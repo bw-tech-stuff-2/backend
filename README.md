@@ -181,14 +181,14 @@ https://usemytechstuff2.herokuapp.com/
     example /api/request/2 
 
     {
-    "id": 2,
-    "techItem": "Mechanical Arm",
-    "techDescription": "Need a hand?",
-    "owner": "techgirl",
-    "price": "$1,000,000",
-    "request": "I need this by Friday",
-    "rentersId": 2,
-    "username": "alchemist"
+         "id": 2,
+         "techItem": "Mechanical Arm",
+         "techDescription": "Need a hand?",
+         "owner": "techgirl",
+         "price": "$1,000,000",
+         "request": "I need this by Friday",
+         "rentersId": 2,
+         "username": "alchemist"
     }
 
     Renter adds tech by POST to /api/request/
@@ -204,8 +204,8 @@ https://usemytechstuff2.herokuapp.com/
     example /api/request/2
 
     {
-    "request": "I need this now!!",
-    "rentersId": 2
+         "request": "I need this now!!",
+         "rentersId": 2
     }
 
     Renter deletes request by id DELETE to /api/request/:id
