@@ -8,7 +8,7 @@ module.exports = {
 };
 
 function findOwner() {
-  return db("owners").select("username", "password", "ownerName", "email")
+  return db("owners").select("id", "username", "password", "ownerName", "email")
 }
 
 function findBy(filter) {
