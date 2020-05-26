@@ -66,7 +66,7 @@ https://usemytechstuff2.herokuapp.com/
          username:  Doc               // String, Unique, NEEDED
          password:  backtothefuture   // String, NEEDED
          ownerName: Emmett Brown      // String, NEEDED
-        email:     docbrown@mail.com // String, Not Needed
+         email:     docbrown@mail.com // String, Not Needed
      }
 
 
