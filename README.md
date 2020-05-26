@@ -1,6 +1,20 @@
 BE Endpoints
 
+# Base URL for Deployed API
+https://usemytechstuff2.herokuapp.com/
 
+# Endpoints
+| Request | URL | Description |
+| ------- | --- | ----------- |
+| POST | /api/owners/auth/register| register as a new owner |
+| POST | /api/owners/auth/login | login as an existing user |
+| POST | /api/renters/auth/register| register as a new renter |
+| POST | /api/renters/auth/login | login as an existing renter |
+| GET | api/tech | get all tech for all users (needs to be logged in) |
+| GET | api/tech/:id | get tech for user with specific id |
+| GET | api/tech/owners/:id | get all tech from specific owner id |
+| PUT | api/tech/:id | edit specific tech for user |
+| DELETE | api/tech/:id | delete specific tech for user |
 
 # Owners
 | Name | Type | Required | Unique | Notes |
