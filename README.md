@@ -10,11 +10,18 @@ https://usemytechstuff2.herokuapp.com/
 | POST | /api/owners/auth/login | login as an existing user |
 | POST | /api/renters/auth/register| register as a new renter |
 | POST | /api/renters/auth/login | login as an existing renter |
-| GET | api/tech | get all tech for all users (needs to be logged in) |
-| GET | api/tech/:id | get tech for user with specific id |
+| GET | api/tech | get all tech for all owners (needs to be logged in) |
+| GET | api/tech/:id | get tech for owner with specific id |
 | GET | api/tech/owners/:id | get all tech from specific owner id |
-| PUT | api/tech/:id | edit specific tech for user |
-| DELETE | api/tech/:id | delete specific tech for user |
+| POST | api/tech | add tech from owner |
+| PUT | api/tech/:id | edit specific tech for owner |
+| DELETE | api/tech/:id | delete specific tech for owner |
+| GET | api/request | get all requests (needs to be logged in) |
+| GET | api/request/:id | get request with specific id |
+| GET | api/request/renters/:id | get all requests from specific renter id |
+| POST | api/request | add request from renter |
+| PUT | api/request/:id | edit specific request for renter |
+| DELETE | api/request/:id | delete specific request for renter |
 
 # Owners
 | Name | Type | Required | Unique | Notes |
