@@ -128,7 +128,7 @@ https://usemytechstuff2.herokuapp.com/
         "price": "$7.00"
     }
 
-   Owner adds item to tech list POST to api/tech/
+    Owner adds item to tech list POST to api/tech/
 
     {
         "techItem": "Time Traveling DeLorean",
