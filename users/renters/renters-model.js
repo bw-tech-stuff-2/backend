@@ -8,7 +8,7 @@ module.exports = {
 };
 
 function findRenter() {
-  return db("renters").select("username", "password", "renterName", "email")
+  return db("renters").select("id", "username", "password", "renterName", "email")
 }
 
 function findBy(filter) {
