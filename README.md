@@ -60,14 +60,14 @@ https://usemytechstuff2.herokuapp.com/
 | email | string | no | no | renters email |
 
 
-Register New Owner POST to /api/owners/auth/register
+    Register New Owner POST to /api/owners/auth/register
 
- {
-     username:  Doc               // String, Unique, NEEDED
-     password:  backtothefuture   // String, NEEDED
-     ownerName: Emmett Brown      // String, NEEDED
-     email:     docbrown@mail.com // String, Not Needed
- }
+    {
+         username:  Doc               // String, Unique, NEEDED
+         password:  backtothefuture   // String, NEEDED
+         ownerName: Emmett Brown      // String, NEEDED
+        email:     docbrown@mail.com // String, Not Needed
+     }
 
 
 Login New Owner POST to /api/owners/auth/login
