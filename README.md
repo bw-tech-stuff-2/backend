@@ -70,38 +70,38 @@ https://usemytechstuff2.herokuapp.com/
      }
 
 
-Login New Owner POST to /api/owners/auth/login
+    Login New Owner POST to /api/owners/auth/login
 
- {
-    username:  Doc                // String, NEEDED
-    password:  backtothefuture    // String, NEEDED
-    ownerName: Emmett Brown       // String, NEEDED
- }
-
-Register New Renter POST to /api/renters/auth/register
-
- {
-     username:   flyguy            // String, Unique, NEEDED
-     password:   backtothefuture   // String, NEEDED
-     renterName: Marty McFly       // String, NEEDED
-     email:      flyguy@mail.com   // String, Not Needed
- }
-
-
-Login New Renter POST to /api/renters/auth/login
-
- {
-    username:    flyguy            // String, unique, NEEDED
-    password:    backtothefuture   // String, NEEDED
-    renterName:  Marty McFly       // String, NEEDED
- }
-
-
-
-Owner goes to Tech and returns array of tech GET to /api/tech/
-
-[
     {
+         username:  Doc                // String, NEEDED
+         password:  backtothefuture    // String, NEEDED
+         ownerName: Emmett Brown       // String, NEEDED
+    }
+
+    Register New Renter POST to /api/renters/auth/register
+
+    {
+       username:   flyguy            // String, Unique, NEEDED
+       password:   backtothefuture   // String, NEEDED
+      renterName: Marty McFly       // String, NEEDED
+       email:      flyguy@mail.com   // String, Not Needed
+    }
+
+
+    Login New Renter POST to /api/renters/auth/login
+
+    {
+     username:    flyguy            // String, unique, NEEDED
+     password:    backtothefuture   // String, NEEDED
+     renterName:  Marty McFly       // String, NEEDED
+    }
+
+
+
+    Owner goes to Tech and returns array of tech GET to /api/tech/
+
+    [
+     {
         "id": 1,
         "techItem": "Time Traveling DeLorean",
         "techDescription": "This car can travel through time, please return yesterday.",
@@ -115,10 +115,10 @@ Owner goes to Tech and returns array of tech GET to /api/tech/
         "owner": "techgirl",
         "price": "$1,000,000"
     }
-]
+    ]
 
-Owner gets tech by id GET to /api/tech/:id
-Example /api/tech/1
+    Owner gets tech by id GET to /api/tech/:id
+    Example /api/tech/1
 
     {
         "id": 1,      // this is the tech id
