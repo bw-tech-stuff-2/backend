@@ -264,7 +264,7 @@ describe("POST /tech/", () => {
     });
   });
 
-  describe("PUT /tech/", () => {
+  describe("PUT /tech/:id", () => {
     it("should return http status code 400", () => {
     return (
       supertest(server)
@@ -276,7 +276,7 @@ describe("POST /tech/", () => {
     });
     })
 
-    test("PUT /api/tech/ to be failing", async () => {
+    test("PUT /api/tech/:id to be failing", async () => {
       const res = await supertest(server)
         .put("/api/tech/2")
         .send({ username: "" });
@@ -286,6 +286,27 @@ describe("POST /tech/", () => {
       });
     });
   
+    describe("DELETE /tech/:id", () => {
+      it("should return http status code 400", () => {
+      return (
+        supertest(server)
+          .delete("/api/tech/2")
+          .then(response => {
+            expect(response.status).toBe(400);
+          })
+      );
+      });
+      })
+  
+      test("DELETE /api/tech/:id to be failing", async () => {
+        const res = await supertest(server)
+          .delete("/api/tech/2")
+          .send({ username: "" });
+        expect(res.status).toBe(400);
+        expect(res.body).toMatchObject({
+          message: "Please provide the authentication information"
+        });
+      });
 
 
 
