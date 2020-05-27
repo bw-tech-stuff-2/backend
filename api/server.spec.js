@@ -414,7 +414,7 @@ describe("POST /request/", () => {
   });
 
 
-  describe("PUT /request/", () => {
+  describe("PUT /request/:id", () => {
     it("should return http status code 400", () => {
     return (
       supertest(server)
@@ -426,7 +426,7 @@ describe("POST /request/", () => {
     });
     })
 
-    test("PUT /api/request/ to be failing", async () => {
+    test("PUT /api/request/:id to be failing", async () => {
       const res = await supertest(server)
         .put("/api/request/2")
         .send({ username: "" });
@@ -436,6 +436,28 @@ describe("POST /request/", () => {
       });
     });
   
+
+    describe("DELETE /request/:id", () => {
+      it("should return http status code 400", () => {
+      return (
+        supertest(server)
+          .delete("/api/request/2")
+          .then(response => {
+            expect(response.status).toBe(400);
+          })
+      );
+      });
+      })
+  
+      test("DELETE /api/request/:id to be failing", async () => {
+        const res = await supertest(server)
+          .delete("/api/request/2")
+          .send({ username: "" });
+        expect(res.status).toBe(400);
+        expect(res.body).toMatchObject({
+          message: "Please provide the authentication information"
+        });
+      });
 
 
 
