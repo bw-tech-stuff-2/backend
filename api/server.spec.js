@@ -306,3 +306,56 @@ return supertest(server)
 });
 });
 
+
+///users tests
+
+describe("GET /users/renters/", () => {
+  it("should return http status code 200 OK", () => {
+  return (
+    supertest(server)
+      .get("/api/users/renters")
+      .then(response => {
+        // from jest
+        expect(response.status).toBe(400);
+      })
+  );
+  });
+  })
+  
+  describe("GET /users/renters/:id", () => {
+  it("should return { api: 'Please provide the authentication information' }", () => {
+  return supertest(server)
+  .get("/api/users/renters/2")
+  .then(response => {
+    expect(response.body).toMatchObject({
+      message: "Please provide the authentication information"
+    });
+  });
+  });
+  });
+
+
+describe("GET /users/owners/", () => {
+  it("should return http status code 200 OK", () => {
+  return (
+    supertest(server)
+      .get("/api/users/owners")
+      .then(response => {
+        // from jest
+        expect(response.status).toBe(400);
+      })
+  );
+  });
+  })
+  
+  describe("GET /users/owners/:id", () => {
+  it("should return { api: 'Please provide the authentication information' }", () => {
+  return supertest(server)
+  .get("/api/users/owners/2")
+  .then(response => {
+    expect(response.body).toMatchObject({
+      message: "Please provide the authentication information"
+    });
+  });
+  });
+  });
