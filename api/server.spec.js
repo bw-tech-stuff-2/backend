@@ -264,6 +264,29 @@ describe("POST /tech/", () => {
     });
   });
 
+  describe("PUT /tech/", () => {
+    it("should return http status code 400", () => {
+    return (
+      supertest(server)
+        .put("/api/tech/2")
+        .then(response => {
+          expect(response.status).toBe(400);
+        })
+    );
+    });
+    })
+
+    test("PUT /api/tech/ to be failing", async () => {
+      const res = await supertest(server)
+        .put("/api/tech/2")
+        .send({ username: "" });
+      expect(res.status).toBe(400);
+      expect(res.body).toMatchObject({
+        message: "Please provide the authentication information"
+      });
+    });
+  
+
 
 
 
