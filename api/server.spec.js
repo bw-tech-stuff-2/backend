@@ -204,7 +204,7 @@ describe("GET /", () => {
 });
 
 describe("GET /tech/:id", () => {
-  it("should return http status code 200 OK", () => {
+  it("should return http status code 400", () => {
     return (
       supertest(server)
         .get("/api/tech/owners/2")
@@ -227,6 +227,32 @@ it("should return { api: 'Please provide the authentication information' }", () 
     });
 });
 });
+
+
+
+describe("POST /tech/", () => {
+  it("should return http status code 400 OK", () => {
+  return (
+    supertest(server)
+      .get("/api/tech/")
+      .then(response => {
+        // from jest
+        expect(response.status).toBe(400);
+      })
+  );
+  });
+  })
+
+
+  test("POST /api/tech/ to be failing", async () => {
+    const res = await supertest(server)
+      .post("/api/tech")
+      .send({ username: "" });
+    expect(res.status).toBe(400);
+    expect(res.body).toMatchObject({
+      message: "Please provide the authentication information"
+    });
+  });
 
 
 //request tests
