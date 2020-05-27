@@ -34,6 +34,10 @@ describe("GET /", () => {
 
 
 
+
+
+
+
     //register and login tests
 
     test("POST /api/owners/register to be failing", async () => {
@@ -150,6 +154,13 @@ describe("GET /", () => {
       });
     });
 
+
+
+
+
+
+
+
     //tech tests
 
 
@@ -234,7 +245,7 @@ describe("POST /tech/", () => {
   it("should return http status code 400", () => {
   return (
     supertest(server)
-      .get("/api/tech/")
+      .post("/api/tech/")
       .then(response => {
         expect(response.status).toBe(400);
       })
@@ -252,6 +263,10 @@ describe("POST /tech/", () => {
       message: "Please provide the authentication information"
     });
   });
+
+
+
+
 
 
 //request tests
@@ -335,7 +350,7 @@ describe("POST /request/", () => {
   it("should return http status code 400", () => {
   return (
     supertest(server)
-      .get("/api/request/")
+      .post("/api/request/")
       .then(response => {
         expect(response.status).toBe(400);
       })
@@ -355,7 +370,28 @@ describe("POST /request/", () => {
   });
 
 
+  describe("PUT /request/", () => {
+    it("should return http status code 400", () => {
+    return (
+      supertest(server)
+        .put("/api/request/2")
+        .then(response => {
+          expect(response.status).toBe(400);
+        })
+    );
+    });
+    })
 
+    test("PUT /api/request/ to be failing", async () => {
+      const res = await supertest(server)
+        .put("/api/request/2")
+        .send({ username: "" });
+      expect(res.status).toBe(400);
+      expect(res.body).toMatchObject({
+        message: "Please provide the authentication information"
+      });
+    });
+  
 
 
 
@@ -365,7 +401,7 @@ describe("POST /request/", () => {
 ///users tests
 
 describe("GET /users/renters/", () => {
-  it("should return http status code 200 OK", () => {
+  it("should return http status code 400", () => {
   return (
     supertest(server)
       .get("/api/users/renters")
@@ -391,12 +427,11 @@ describe("GET /users/renters/", () => {
 
 
 describe("GET /users/owners/", () => {
-  it("should return http status code 200 OK", () => {
+  it("should return http status code 400", () => {
   return (
     supertest(server)
       .get("/api/users/owners")
       .then(response => {
-        // from jest
         expect(response.status).toBe(400);
       })
   );
