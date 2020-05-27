@@ -207,7 +207,7 @@ describe("GET /tech/:id", () => {
   it("should return http status code 200 OK", () => {
     return (
       supertest(server)
-        .get("/api/tech/2")
+        .get("/api/tech/owners/2")
         .then(response => {
           // from jest
           expect(response.status).toBe(400);
@@ -227,3 +227,82 @@ it("should return { api: 'Please provide the authentication information' }", () 
     });
 });
 });
+
+
+//request tests
+
+describe("GET /request", () => {
+  it("should return http status code 200 OK", () => {
+    return (
+      supertest(server)
+        .get("/api/request")
+        .then(response => {
+          // from jest
+          expect(response.status).toBe(400);
+        })
+    );
+  });
+})
+
+describe("GET /request", () => {
+it("should return { api: 'Please provide the authentication information' }", () => {
+  return supertest(server)
+    .get("/api/request")
+    .then(response => {
+      expect(response.body).toMatchObject({
+        message: "Please provide the authentication information"
+      });
+    });
+});
+});
+
+describe("GET /request/:id", () => {
+it("should return http status code 200 OK", () => {
+  return (
+    supertest(server)
+      .get("/api/request/2")
+      .then(response => {
+        // from jest
+        expect(response.status).toBe(400);
+      })
+  );
+});
+})
+
+describe("GET /request/:id", () => {
+it("should return { api: 'Please provide the authentication information' }", () => {
+return supertest(server)
+  .get("/api/request/2")
+  .then(response => {
+    expect(response.body).toMatchObject({
+      message: "Please provide the authentication information"
+    });
+  });
+});
+});
+
+describe("GET /request/renters/:id", () => {
+it("should return http status code 200 OK", () => {
+return (
+  supertest(server)
+    .get("/api/request/renters/2")
+    .then(response => {
+      // from jest
+      expect(response.status).toBe(400);
+    })
+);
+});
+})
+
+describe("GET /request/renters/:id", () => {
+it("should return { api: 'Please provide the authentication information' }", () => {
+return supertest(server)
+.get("/api/request/renters/2")
+.then(response => {
+  expect(response.body).toMatchObject({
+    message: "Please provide the authentication information"
+  });
+});
+});
+});
+
